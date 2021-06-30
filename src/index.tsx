@@ -5,12 +5,14 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import DetailComponent from './components/DetailComponent'
+import FormComponent from './components/FormComponent'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Route path="/" exact component={App} />
       <Route path="/detail" exact render={(routerProps) => <DetailComponent title="hello" {...routerProps} />} />
+      <Route path="/form" exact component={FormComponent} />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

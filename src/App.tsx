@@ -2,6 +2,7 @@ import './App.css'
 // import MainComponent from './components/MainComponent'
 import FunctionalComponent from './components/FunctionalComponent'
 import { useState, useEffect } from 'react'
+import { Book } from './types/interfaces'
 
 const myFunction = (text: string) => {
   console.log(text)
@@ -13,7 +14,7 @@ const myAddress = {
 }
 
 function App() {
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState<Book[]>([])
 
   useEffect(() => {
     const getFoodBooks = async () => {
@@ -32,8 +33,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        {console.log(books)}
         {/* <MainComponent title="First TypeScript component!" hasib={myFunction} obj={myAddress} /> */}
-        <FunctionalComponent title="HELLO" subTitle="SUBTITLE HERE" />
+        <FunctionalComponent title="HELLO" subTitle="SUBTITLE HERE" books={books} />
+        {/* {books.map((book) => (
+          <div>{book.title}</div>
+        ))} */}
       </header>
     </div>
   )
