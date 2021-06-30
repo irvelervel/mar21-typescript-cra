@@ -2,7 +2,7 @@ import { Component } from 'react'
 
 interface Obj {
   street: string
-  n: number
+  n?: number
 }
 
 interface MainComponentProps {
@@ -11,12 +11,30 @@ interface MainComponentProps {
   hasib: (text: string) => void
 }
 
-const myArr: (string | number | boolean)[] = [true, 4, 'false']
+interface MainComponentState {
+  count: number
+}
 
-class MainComponent extends Component<MainComponentProps> {
+class MainComponent extends Component<MainComponentProps, MainComponentState> {
+  state: MainComponentState = {
+    count: 0,
+  }
+
   render() {
-    console.log(myArr)
-    return <h1 onClick={() => this.props.hasib('hello!')}>{this.props.title}</h1>
+    return (
+      <>
+        <h1 onClick={() => this.props.hasib('hello!')}>{this.props.title}</h1>
+        <div
+          onClick={() =>
+            this.setState({
+              count: this.state.count + 1,
+            })
+          }
+        >
+          {this.state.count}
+        </div>
+      </>
+    )
   }
 }
 
