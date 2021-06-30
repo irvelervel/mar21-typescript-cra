@@ -1,4 +1,4 @@
-import { useState, Dispatch, SetStateAction } from 'react'
+import { useState } from 'react'
 
 interface FunctionalComponentProps {
   title: string

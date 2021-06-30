@@ -1,9 +1,5 @@
 import { Component } from 'react'
-
-interface Obj {
-  street: string
-  n?: number
-}
+import { Obj } from '../types/interfaces'
 
 interface MainComponentProps {
   title: string
